@@ -6,14 +6,13 @@
 </template>
 <script lang="ts">
 import { defineComponent,onMounted,ref } from 'vue'
-import echart from 'echarts';
-console.log(echart,'123')
+import * as echarts from 'echarts'
 export default defineComponent({
   setup() {
     console.log(123)
       let chart1=ref(null);
       onMounted(()=>{
-         console.log(echart)
+         console.log(echarts)
          console.log(chart1.value)
       })
       return {
