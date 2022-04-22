@@ -1,16 +1,20 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is an about page2</h1>
+    <TestComp />
     <div id="chart" ref="chart1" class="chart"/>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent,onMounted,ref } from 'vue'
+import TestComp from '@/components/comp.vue';
+import { defineComponent,onMounted,ref,Ref } from 'vue'
 import * as echarts from 'echarts'
 export default defineComponent({
+  components:{
+    TestComp:TestComp
+  },
   setup() {
-    console.log(123)
-      let chart1=ref<any>(null);
+      let chart1:Ref<HTMLElement>=ref<any>(null);
 
       onMounted(()=>{
          console.log(echarts)
