@@ -8,6 +8,10 @@
 <script lang="ts">
 import TestComp from '@/components/comp.vue';
 import { defineComponent,onMounted,ref,Ref } from 'vue'
+import qs from 'qs';
+qs.stringify({a:'123'})
+import _ from 'lodash'
+console.log(_.join(['a', 'b'], '~'))
 import * as echarts from 'echarts'
 export default defineComponent({
     name:'TestView',

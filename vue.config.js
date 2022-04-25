@@ -3,13 +3,38 @@ const IS_PROD = process.env.NODE_ENV === 'production'
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = defineConfig({
-  publicPath:'./',
-  assetsDir:'static',
-  
+  publicPath: './',
+  assetsDir: 'static',
+
   transpileDependencies: true,
+  chainWebpack(config) {
+    config.when(IS_PROD,
+      config => {
+        config.optimization.splitChunks({
+          chunks: 'all',
+          cacheGroups: {
+            vendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              // reuseExistingChunk:true
+            },
+            // echarts: {
+            //   name:'echarts',
+            //   test: /[\\/]node_modules[\\/]_?echarts(.*)/,
+            //   priority: -9,
+            // },
+            // default: false
+          }
+        })
+      });
+    config
+      .plugin('webpack-bundle-analyzer')
+      .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+      .end()
+  }
   // configureWebpack:config=>{
   //     return {
-        
+
   //       plugins:[
   //         IS_PROD?new BundleAnalyzerPlugin():''
   //       ],
