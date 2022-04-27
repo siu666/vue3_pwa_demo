@@ -13,54 +13,19 @@ module.exports = defineConfig({
         config.optimization.splitChunks({
           chunks: 'all',
           cacheGroups: {
-            vendors: {
-              test: /[\\/]node_modules[\\/]/,
-              priority: -10,
-              // reuseExistingChunk:true
-            },
-            // echarts: {
-            //   name:'echarts',
-            //   test: /[\\/]node_modules[\\/]_?echarts(.*)/,
+            vendors: false
+            // lodash: {
+            //   name:'lodash',
+            //   test: /[\\/]node_modules[\\/]_?lodash(.*)/,
             //   priority: -9,
             // },
             // default: false
           }
-        })
-      });
+        });
     config
       .plugin('webpack-bundle-analyzer')
       .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
       .end()
-  }
-  // configureWebpack:config=>{
-  //     return {
-
-  //       plugins:[
-  //         IS_PROD?new BundleAnalyzerPlugin():''
-  //       ],
-  //       optimization: {
-  //         splitChunks: {
-  //             chunks: 'async',
-  //             minSize: 30000,
-  //             minChunks: 1,
-  //             maxAsyncRequests: 6,
-  //             maxInitialRequests: 4,
-  //             automaticNameDelimiter: '~',
-  //             cacheGroups: {
-  //                 vendors: {
-  //                     test: /[\\/]node_modules[\\/]/,
-  //                     priority: -10,
-  //                 },
-  //                 // common: {
-  //                 //     name: `chunk-common`,
-  //                 //     minChunks: 2,
-  //                 //     priority: -20,
-  //                 //     chunks: 'initial',
-  //                 //     reuseExistingChunk: true
-  //                 // }
-  //             }
-  //         }
-  //     }
-  //     }
-  // }
+    })
+   }
 })

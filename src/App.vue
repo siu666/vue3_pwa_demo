@@ -1,12 +1,24 @@
 <template>
   <nav>
-    <router-link to="/">Hom222222e</router-link> |
-    <router-link to="/about1">About</router-link> |
-        <router-link to="/test">Tesst</router-link>
+        <router-link to="/about1">About</router-link> |
+
+    <router-link to="/home">Hom222222e</router-link> |
+    <router-link to="/test">Tesst</router-link>
 
   </nav>
   <router-view/>
 </template>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    return {
+      
+    }
+  },
+})
+</script>
 
 <style>
 #app {

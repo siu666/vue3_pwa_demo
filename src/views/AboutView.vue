@@ -8,6 +8,8 @@
 <script lang="ts">
 import TestComp from '@/components/comp.vue';
 import { defineComponent,onMounted,ref,Ref } from 'vue'
+import axios from 'axios';
+console.log(axios)
 import * as echarts from 'echarts'
 export default defineComponent({
   components:{

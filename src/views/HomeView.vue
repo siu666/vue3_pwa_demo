@@ -11,7 +11,8 @@
 import { defineComponent } from 'vue';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import TestComp from '@/components/comp.vue'; // @ is an alias to /src
-
+import _ from 'lodash'
+console.log(_.join(['a', 'b'], '~'))
 export default defineComponent({
   name: 'HomeView',
   components: {

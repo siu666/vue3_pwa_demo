@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: ()=>import(/* webpackChunkName: "home" */ '../views/HomeView.vue')//这里同步引入了组件的形式，所以开始就会把loadsh也进行了打包
   },
   {
     path: '/about1',
