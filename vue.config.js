@@ -13,7 +13,9 @@ module.exports = defineConfig({
   assetsDir: 'static',
 
   transpileDependencies: true,
+  
   chainWebpack(config) {
+    config.module.rule()
     config.when(IS_PROD,
       config => {
         config.optimization.splitChunks({
@@ -61,6 +63,34 @@ module.exports = defineConfig({
          }
         )
   },
+  configureWebpack:{
+    module:{
+      rules:[
+        {
+          test:/\.(png|jpg|gif|svg|jpeg)$/,
+          // loader:'file-loader',
+          // type:'asset',
+          //webpack5 处理
+          parser: {
+            dataUrlCondition: {
+              maxSize: 3*1024
+            }
+          },
+          generator: {
+            
+            filename: 'static/image/[name].[hash:5][ext]'
+          },
+          // options:{
+          //   limit:9*1024,
+          //   name:'[name].[hash:10].[ext]',
+          //   outputPath:'static/',
+          //   publicPath:'./'
+          // }
+          // use:['file-loader'],
+        }
+      ]
+    },
+  }
   // configureWebpack: {
   //   optimization: {
   //     minimizer: [
