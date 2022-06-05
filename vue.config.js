@@ -13,7 +13,9 @@ module.exports = defineConfig({
   assetsDir: 'static',
 
   transpileDependencies: true,
-  
+  devServer:{
+    port:8111
+  },
   chainWebpack(config) {
     config.module.rule()
     config.when(IS_PROD,
@@ -25,7 +27,7 @@ module.exports = defineConfig({
               // name: 'chunk-libs',
               test: /[\\/]node_modules[\\/]/,
               priority: 10,
-              chunks: 'async' // only package third parties that are initially dependent
+              chunks: 'all' // only package third parties that are initially dependent
             },
             // elementUI: {
             //     name: 'chunk-elementUI', // split elementUI into a single package
@@ -36,7 +38,7 @@ module.exports = defineConfig({
               // name: 'common', // chunk 名称
               priority: 0, // 优先级
               minSize: 0,  // 公共模块的大小限制
-              minChunks: 2  // 公共模块最少复用过几次
+              minChunks: 1  // 公共模块最少复用过几次
             }
           }
         });

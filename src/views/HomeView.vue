@@ -22,3 +22,10 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss" scoped>
+.home{
+  img{
+    width: 100px;
+  }
+}
+</style>

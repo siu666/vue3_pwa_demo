@@ -1,12 +1,15 @@
 <template>
   <nav>
-        <router-link to="/about1">About</router-link> |
+        <i>micro</i>
+        <router-link to="/sub_vue">sub_vue</router-link>
+                <router-link to="/sub_vue2">sub_vue</router-link>
 
-    <router-link to="/home">Hom222222e</router-link> |
-    <router-link to="/test">Tesst</router-link>
+          <router-link to="/about1">about</router-link>
 
   </nav>
-  <router-view/>
+  <router-view />
+  <div id="container"></div>
+
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -33,9 +36,10 @@ nav {
   padding: 30px;
 }
 
-nav a {
+nav a,i {
   font-weight: bold;
   color: #2c3e50;
+  margin-left: 5px;
 }
 
 nav a.router-link-exact-active {
