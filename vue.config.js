@@ -9,12 +9,12 @@ function resolve(dir) {
 }
 
 module.exports = defineConfig({
-  publicPath: './',
+  publicPath: '/',
   assetsDir: 'static',
 
   transpileDependencies: true,
   devServer:{
-    port:8111
+    port:9527
   },
   chainWebpack(config) {
     config.module.rule()
